@@ -1,0 +1,553 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Times New Roman', Times, serif;
+    scroll-behavior: smooth;
+    outline: none;
+    text-decoration: none;
+    list-style: none;
+}
+
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: rgb(57, 56, 56); 
+    background-size: cover;
+    min-height: 100vh;
+    background-position: center;
+}
+
+
+
+
+
+
+.header__content{
+    top: 0;
+    position: absolute;
+    color: #f4a60b;
+    width: 100%;
+    height: 100vh;
+    background-size: cover;
+    background-position: bottom center;
+}
+
+.header__content .back-video{
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 100%;
+    z-index: 0;
+}
+
+
+
+header.sticky{
+    background: transparent;
+    backdrop-filter: blur(10px);
+}
+
+.home-text{
+    margin: 90px;
+    position: relative;
+    z-index: 1;
+}
+  
+.header__content h1 {
+    margin-top: 3rem;
+    margin-bottom: 5rem;
+    font-size: 5rem;
+    font-weight: 700;
+    line-height: 6rem;
+}
+  
+.header__content h1 span {
+    -webkit-text-fill-color: rgb(116, 184, 53);
+    -webkit-text-stroke: 1px #000000;
+}
+  
+.header__content p {
+    margin-top: 3rem;
+    margin-bottom: 2rem;
+    font-size: 20px;
+    color: rgb(255, 255, 255);
+    line-height: 35px;
+}
+
+.book{
+    padding: 1rem 2rem;
+    outline: none;
+    border: 2px solid orange;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 1rem;
+    color: white;
+    background-color: orange;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+.book:hover{
+    background-color: transparent;
+    font-weight: 500;
+    color: white;
+    transform: translateX(10px);
+    border: 2px solid white;
+}
+
+
+header{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 20px 100px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 99;
+}
+
+.logo{
+    color: white;
+    font-size: 2em;
+    user-select: none;
+}
+
+.logo span{
+    color: orange;
+}
+
+.navigation a{
+    position: relative;
+    text-decoration: none;
+    font-size: 1.1em;
+    color: rgb(255, 255, 255);
+    font-weight: 500;
+    margin: 0px 40px;
+}
+
+.navigation a::after{
+    content: '';
+    position: absolute;
+    background-color: aliceblue;
+    width: 100%;
+    height: 3px;
+    bottom: -6px;
+    left: 0px;
+    transform: scaleX(0);
+    transition: 0.3s;
+}
+
+.navigation a:hover::after{
+    transform: scaleX(1);
+}
+
+.navigation .login-popup{
+    width: 130px;
+    height: 30px;
+    padding: 0px 0px 0px 0px;
+    margin: 0px 0px;
+    background: transparent;
+    border-radius: 5px;
+    border: 2px solid white;
+    outline: none;
+    cursor: pointer;
+    color: white;
+    font-size: 1.1em;
+    margin-left: 40px;
+    font-weight: 500;
+    transition: 0.3s;
+}
+
+.navigation .login-popup:hover{
+    background: white;
+    color: black;
+}
+
+.wrapper{
+    margin: 500px 500px 0 500px;
+    position: absolute;
+    border: 2px solid rgba(255, 255, 255, .5);
+    width: 400px;
+    height: 400px;
+    border-radius: 20px;
+    backdrop-filter: blur(20px);
+    box-shadow: 0 0 30px rgba(96, 247, 237, 0.5);
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    transform: scale(0);
+    transition:  transform 0.5s ease, height 0.2s ease;
+}
+
+
+.wrapper.active-popup{
+    transform: scale(1);
+}
+
+.wrapper.active{
+    height: 500px;
+}
+
+.wrapper .form-box{
+    width: 100%;
+    padding: 40px;
+}
+
+.wrapper .form-box.login{
+    transition: .18s ease;
+    transform: translateX(0);
+}
+
+.wrapper.active .form-box.login{
+    transition: none;
+    transform: translateX(-400px);
+}
+
+.wrapper .form-box.register{
+    position: absolute;
+    transform: translateX(400px);
+    transition: none;
+}
+
+.wrapper.active .form-box.register{
+    transition: 0.18s ease;
+    transform: translateX(0);
+}
+
+.wrapper .icon-close{
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 45px;
+    height: 45px;
+    font-size: 1.8em;
+    color: white;
+    background-color: #162938;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    border-bottom-left-radius: 20px;
+    cursor: pointer;
+    z-index: 1;
+}
+
+.form-box h2{
+    color: #ffffff;
+    font-size: 2em;
+    text-align: center;
+    user-select: none;
+}
+
+.input-box{
+    position: relative;
+    width: 100%;
+    height: 50px;
+    border-bottom: 2px solid #162938;
+    margin: 20px 0;
+}
+
+.input-box label{
+    position: absolute;
+    top: 50%;
+    left: 5px;
+    transform: translateY(-50%);
+    color: #dfedf7;
+    font-weight: 500;
+    pointer-events: none;
+    transition: .5s;
+}
+
+.input-box input:focus~label,
+.input-box input:valid~label {
+    top: -5px;
+}
+
+.input-box input{
+    width: 100%;
+    height: 100%;
+    background: transparent;
+    border: none;
+    outline: none;
+    font-size:1em;
+    color: #d8d8d8;
+    font-weight: 600;
+    padding: 0 35px 0 5px;
+}
+
+.input-box .icon{
+    position: absolute;
+    right: 8px;
+    font-size: 1.2em;
+    color: #b5b1b1;
+    line-height: 57px;
+}
+
+.remember-forgot{
+    font-size: .9em;
+    color: #ffffff;
+    font-weight: 500;
+    margin: -15px 0px 15px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.remember-forgot label input{
+    accent-color: #9ea1ab;
+    margin-right: 3px;
+}
+
+.remember-forgot a{
+    color: #ffffff;
+    text-decoration: none;
+}
+
+.remember-forgot a:hover{
+    text-decoration: underline;
+}
+
+.btn{
+    width: 100%;
+    height: 35px;
+    background: #162938;
+    border: none;
+    outline: none;
+    border-radius: 30px;
+    cursor: pointer;
+    font-size: 1em;
+    color: white;
+    font-weight: 500;
+}
+
+.btn:hover{
+    background-color: transparent;
+    border: 3px solid #162938;
+    font-weight: 500;
+}
+
+.login-register{
+    color: rgb(255, 255, 255);
+    font-size: .9em;
+    font-weight: 500;
+    text-align: center;
+    margin-top: 25px;
+    margin-bottom: 10px;
+}
+
+.login-register p a{
+    color: #f4f4f4;
+    margin-left: 10px;
+    font-size: 17px;
+    font-weight: 600;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.login-register p a:hover{
+    text-decoration: underline;
+    opacity: 0.7;
+}
+
+
+
+
+
+
+
+
+.feature{
+    margin-top: 1150px;
+}
+
+.feature .why-choose-sagada-h2{
+    font-size: 50px;
+}
+
+.why-choose-sagada{
+    text-align: center;
+    padding: 30px 30px ;
+    margin-bottom: 180px;
+    background-color: #265700;
+    justify-content: center;
+}
+
+
+.feature h2{
+    display: flex;
+    margin: 20px;
+    justify-content: center;
+    font-size: 40px;
+    color: rgba(255, 166, 0, 0.886);
+}
+
+.why-choose span{
+    margin-left: 30px;
+    margin-right: 30px;
+    margin-bottom: 50px;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+}
+
+.why-choose-titles{
+    font-size: 30px;
+    color: #7bc447;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.why-choose img{
+    margin-left: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 200px;
+    height: 200px;
+    border-radius: 10%;
+    margin-top: 40px;
+    margin-bottom: 60px;
+}
+
+
+
+.understanding{
+    margin:0 190px 130px 190px;
+    line-height: 30px;
+    font-size: 1.3em;
+    color: rgba(201, 196, 196, 0.771);
+    text-align: center;
+}
+
+.understanding img{
+    width: 700px;
+    border-radius: 10px;
+}
+
+
+.what-we-offer{
+    margin:0 190px 130px 190px;
+    line-height: 30px;
+    font-size: 1.3em;
+    color: rgba(255, 255, 255, 0.771);
+    text-align: center;
+}
+
+.what-we-offer img{
+    width: 600px;
+}
+
+
+.offer-ul-li{
+    color: rgb(140, 238, 140);
+    line-height: 50px;
+    font-size: 30px;
+}
+
+
+
+
+
+.feature p{
+    color: white;
+    font-size: 17px;
+    margin: 30px;
+    display: flex;
+    justify-content: center;
+    text-align: left;
+    line-height: 30px;
+}
+
+.feature-content{
+    margin-bottom: 400px;
+}
+
+.popular-tours p{
+    font-size: 1.2rem;
+    align-items: center;
+    text-align: center;
+}
+
+/* .row img{
+    width: 200px;
+    height: 200px;
+    align-items: center;
+    border-radius: 50%;
+} */
+
+.row-img{
+    margin-bottom: 140px;
+    text-align: center;
+}
+
+.row-img h3{
+    align-items: left;
+    color: rgb(252, 195, 88);
+    font-size: 1.8rem;
+    text-align: center;
+}
+
+.row-img p{
+    text-align: center;
+}
+
+.row h4{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+
+
+
+
+
+
+
+.footer{
+    position: fixed;
+    bottom: 0;
+    background-color: #162938;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    padding: 12px;
+}
+
+
+.footer .media a{
+    color:white;
+    justify-content: space-between;
+    font-size: 1.5rem;;
+    margin: 4px 9px;
+}
+
+
+
+
+
+
+
+
+@media screen and (max-width:600px){
+    .home-text h1{
+        font-size: 36px;
+        line-height: 50px;
+        margin: 10px;
+    }
+
+    .feature .why-choose-sagada-h2{
+        font-size: 26px;
+        line-height: 50px;
+        margin: 10px;
+    }
+    
+}

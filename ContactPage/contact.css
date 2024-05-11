@@ -1,0 +1,474 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Times New Roman', Times, serif;
+    scroll-behavior: smooth;
+    outline: none;
+    text-decoration: none;
+    list-style: none;
+}
+
+body{
+    display: flex;
+    background: rgb(165, 143, 143); 
+    background-size: cover;
+    min-height: 100vh;
+    background-position: center;
+}
+
+
+
+
+
+
+
+.header__content{
+    top: 0;
+    position: absolute;
+    color: #f4a60b;
+    background-image: linear-gradient(to left,rgba(0,0,0,0.6), rgba(0,0,0,0.3)), url(image/sagdaTown1.jpg);
+    width: 100%;
+    height: 100vh;
+    background-size: cover;
+    background-position: bottom center;
+}
+
+header.sticky{
+    background: transparent;
+    backdrop-filter: blur(10px);
+}
+
+.home-text{
+    margin: 90px;
+}
+  
+.header__content h1 {
+    margin-top: 3rem;
+    margin-bottom: 5rem;
+    font-size: 5rem;
+    font-weight: 700;
+    line-height: 6rem;
+}
+  
+.header__content h1 span {
+    -webkit-text-fill-color: rgb(33, 204, 56);
+    -webkit-text-stroke: 3px #000000;
+}
+  
+.header__content p {
+    margin-top: 3rem;
+    margin-bottom: 2rem;
+    font-size: 20px;
+    color: rgb(255, 255, 255);
+    line-height: 35px;
+}
+
+.book{
+    padding: 1rem 2rem;
+    outline: none;
+    border: 2px solid orange;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 1rem;
+    color: white;
+    background-color: orange;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+.book:hover{
+    background-color: transparent;
+    font-weight: 500;
+    color: white;
+    transform: translateX(10px);
+    border: 2px solid white;
+}
+
+
+header{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 20px 100px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 99;
+}
+
+.logo{
+    color: white;
+    font-size: 2em;
+    user-select: none;
+}
+
+.logo span{
+    color: orange;
+}
+
+.navigation a{
+    position: relative;
+    text-decoration: none;
+    font-size: 1.1em;
+    color: rgb(255, 255, 255);
+    font-weight: 500;
+    margin: 0px 40px;
+}
+
+.navigation a::after{
+    content: '';
+    position: absolute;
+    background-color: aliceblue;
+    width: 100%;
+    height: 3px;
+    bottom: -6px;
+    left: 0px;
+    transform: scaleX(0);
+    transition: 0.3s;
+}
+
+.navigation a:hover::after{
+    transform: scaleX(1);
+}
+
+.navigation .login-popup{
+    width: 130px;
+    height: 30px;
+    padding: 0px 0px 0px 0px;
+    margin: 0px 0px;
+    background: transparent;
+    border-radius: 5px;
+    border: 2px solid white;
+    outline: none;
+    cursor: pointer;
+    color: white;
+    font-size: 1.1em;
+    margin-left: 40px;
+    font-weight: 500;
+    transition: 0.3s;
+}
+
+.navigation .login-popup:hover{
+    background: white;
+    color: black;
+}
+
+.wrapper{
+    margin: 500px 500px 0 500px;
+    margin-left: 500px;
+    position: absolute;
+    border: 2px solid rgba(255, 255, 255, .5);
+    width: 400px;
+    height: 400px;
+    border-radius: 20px;
+    backdrop-filter: blur(20px);
+    box-shadow: 0 0 30px rgba(96, 247, 237, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    transform: scale(0);
+    transition:  transform 0.5s ease, height 0.2s ease;
+}
+
+
+.wrapper.active-popup{
+    transform: scale(1);
+}
+
+.wrapper.active{
+    height: 500px;
+}
+
+.wrapper .form-box{
+    width: 100%;
+    padding: 40px;
+}
+
+.wrapper .form-box.login{
+    transition: .18s ease;
+    transform: translateX(0);
+}
+
+.wrapper.active .form-box.login{
+    transition: none;
+    transform: translateX(-400px);
+}
+
+.wrapper .form-box.register{
+    position: absolute;
+    transform: translateX(400px);
+    transition: none;
+}
+
+.wrapper.active .form-box.register{
+    transition: 0.18s ease;
+    transform: translateX(0);
+}
+
+.wrapper .icon-close{
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 45px;
+    height: 45px;
+    font-size: 1.8em;
+    color: white;
+    background-color: #162938;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    border-bottom-left-radius: 20px;
+    cursor: pointer;
+    z-index: 1;
+}
+
+.form-box h2{
+    color: #ffffff;
+    font-size: 2em;
+    text-align: center;
+    user-select: none;
+}
+
+.input-box{
+    position: relative;
+    width: 100%;
+    height: 50px;
+    border-bottom: 2px solid #162938;
+    margin: 20px 0;
+}
+
+.input-box label{
+    position: absolute;
+    top: 50%;
+    left: 5px;
+    transform: translateY(-50%);
+    color: #dfedf7;
+    font-weight: 500;
+    pointer-events: none;
+    transition: .5s;
+}
+
+.input-box input:focus~label,
+.input-box input:valid~label {
+    top: -5px;
+}
+
+.input-box input{
+    width: 100%;
+    height: 100%;
+    background: transparent;
+    border: none;
+    outline: none;
+    font-size:1em;
+    color: #d8d8d8;
+    font-weight: 600;
+    padding: 0 35px 0 5px;
+}
+
+.input-box .icon{
+    position: absolute;
+    right: 8px;
+    font-size: 1.2em;
+    color: #b5b1b1;
+    line-height: 57px;
+}
+
+.remember-forgot{
+    font-size: .9em;
+    color: #ffffff;
+    font-weight: 500;
+    margin: -15px 0px 15px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.remember-forgot label input{
+    accent-color: #9ea1ab;
+    margin-right: 3px;
+}
+
+.remember-forgot a{
+    color: #ffffff;
+    text-decoration: none;
+}
+
+.remember-forgot a:hover{
+    text-decoration: underline;
+}
+
+.btn{
+    width: 100%;
+    height: 35px;
+    background: #162938;
+    border: none;
+    outline: none;
+    border-radius: 30px;
+    cursor: pointer;
+    font-size: 1em;
+    color: white;
+    font-weight: 500;
+}
+
+.btn:hover{
+    background-color: transparent;
+    border: 3px solid #162938;
+    font-weight: 500;
+}
+
+.login-register{
+    color: rgb(255, 255, 255);
+    font-size: .9em;
+    font-weight: 500;
+    text-align: center;
+    margin-top: 25px;
+    margin-bottom: 10px;
+}
+
+.login-register p a{
+    color: #f4f4f4;
+    margin-left: 10px;
+    font-size: 17px;
+    font-weight: 600;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.login-register p a:hover{
+    text-decoration: underline;
+    opacity: 0.7;
+}
+
+
+
+.container{
+    width: 80%;
+    margin: 150px 50px 50px 90px;
+    font-family:  sans-serif;
+}
+
+h1{
+    margin-bottom: 20px;
+}
+
+.contact-box{
+    background-color: #ffffff;
+    display: flex;
+}
+
+.contact-left{
+    flex-basis: 60%;
+    padding: 40px 60px;
+}
+
+.contact-right{
+    flex-basis: 40%;
+    padding: 40px;
+    background-color: rgb(32, 67, 196);
+    color: white;
+}
+
+.input-row{
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.input-row .input-group{
+    flex-basis: 45%;
+}
+
+input{
+    width: 100%;
+    border: none;
+    border-bottom: 1px solid #ccc;
+    outline: none;
+    padding-bottom: 5px;
+
+}
+
+textarea{
+    width: 100%;
+    border: 1px solid #ccc;
+    outline: none;
+    padding: 10px;
+}
+
+label{
+    display: block;
+    margin-bottom: 6px;
+    color: #170196;
+}
+
+.submit-button{
+    background-color: rgb(1, 1, 190);
+    color: white;
+    width: 100px;
+    border: none;
+    outline: none;
+    height: 35px;
+    cursor: pointer;
+    border-radius: 30px;
+    margin-top: 30px;
+    box-shadow: 0px 10px 10px 0px rgba(28,0,181,0.3);
+}
+
+.contact-left h3{
+    color: #6a62dd;
+    font-weight: 600;
+    margin-bottom: 30px;
+}
+
+.contact-right h3{
+    font-weight: 600;
+    margin-bottom: 30px;
+}
+
+tr td:first-child{
+    padding-right: 30px;
+}
+
+tr td{
+    padding-top: 60px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.footer{
+    position: fixed;
+    bottom: 0;
+    background-color: #162938;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    padding: 12px;
+}
+
+
+.footer .media a{
+    color:white;
+    justify-content: space-between;
+    font-size: 1.5rem;;
+    margin: 4px 9px;
+}
